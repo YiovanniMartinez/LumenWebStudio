@@ -9,16 +9,16 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => (
-  <section className="py-32 relative">
-    <div className="container mx-auto px-6">
-      <AnimatedSection className="text-center mb-16">
-        <p className="text-primary text-sm uppercase tracking-widest mb-4">Testimonios</p>
-        <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold">
+  <section className="py-20 md:py-32 relative">
+    <div className="container mx-auto px-4 sm:px-6">
+      <AnimatedSection className="text-center mb-10 sm:mb-16">
+        <p className="text-primary text-xs sm:text-sm uppercase tracking-widest mb-3 sm:mb-4">Testimonios</p>
+        <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold px-2">
           Lo que dicen nuestros clientes
         </h2>
       </AnimatedSection>
 
-      <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
         {testimonials.map((t, i) => (
           <motion.div
             key={t.name}
@@ -26,7 +26,7 @@ const TestimonialsSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.15 }}
-            className="glass rounded-xl p-7"
+            className="glass rounded-xl p-5 sm:p-6 md:p-7"
           >
             <div className="flex gap-1 mb-4">
               {Array.from({ length: 5 }).map((_, j) => (
@@ -35,7 +35,7 @@ const TestimonialsSection = () => (
             </div>
             <p className="text-foreground mb-6 leading-relaxed">"{t.text}"</p>
             <div>
-              <p className="font-heading font-semibold text-sm text-foreground">{t.name}</p>
+              <p className="font-heading font-semibold text-sm sm:text-base text-foreground">{t.name}</p>
               <p className="text-xs text-muted-foreground">{t.role}</p>
             </div>
           </motion.div>
