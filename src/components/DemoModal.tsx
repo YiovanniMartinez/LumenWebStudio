@@ -29,10 +29,9 @@ const DemoModal = ({ isOpen, onClose }: DemoModalProps) => {
     setSubmitStatus("idle");
 
     try {
-      // EmailJS configuration - You'll need to replace these with your actual EmailJS credentials
       const result = await emailjs.send(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           to_email: "lum3nw3bstud1o@gmail.com",
           from_name: formData.nombre,
@@ -44,7 +43,7 @@ const DemoModal = ({ isOpen, onClose }: DemoModalProps) => {
           necesidades: formData.necesidades,
           como_encontraste: formData.comoNosEncontraste,
         },
-        "YOUR_PUBLIC_KEY" // Replace with your EmailJS public key
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
       if (result.status === 200) {
